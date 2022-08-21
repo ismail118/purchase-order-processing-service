@@ -1,0 +1,4516 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Purchase Order Processing Service",
+    "description": "API Specification For Purchase Order Processing Service",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "paths": {
+    "/api/company": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Company API"],
+        "description": "service for get list company",
+        "summary": "service for get list company",
+        "responses": {
+          "200": {
+            "description": "Success get all company",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/company"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Company API"],
+        "description": "create new company",
+        "summary": "create new company",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/companyCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create company",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/company"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/company/{company_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Company API"],
+        "description": "get company by id",
+        "summary": "get company by id",
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "description": "company id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get company",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/company"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Company API"],
+        "description": "update company by id",
+        "summary": "update company by id",
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "description": "company id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/companyUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update company",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/company"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/customer": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Customer API"],
+        "description": "service for get list customer",
+        "summary": "service for get list customer",
+        "responses": {
+          "200": {
+            "description": "Success get all customer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/customer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Customer API"],
+        "description": "create new customer",
+        "summary": "create new customer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/customerCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create customer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/customer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/customer/{customer_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Customer API"],
+        "description": "get customer by id",
+        "summary": "get customer by id",
+        "parameters": [
+          {
+            "name": "customer_id",
+            "in": "path",
+            "description": "customer id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get customer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/customer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Customer API"],
+        "description": "update customer by id",
+        "summary": "update customer by id",
+        "parameters": [
+          {
+            "name": "customer_id",
+            "in": "path",
+            "description": "customer id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/customerUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update customer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/customer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/store": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Store API"],
+        "description": "service for get list store",
+        "summary": "service for get list store",
+        "responses": {
+          "200": {
+            "description": "Success get all store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/store"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Store API"],
+        "description": "create new store",
+        "summary": "create new store",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/storeCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/store"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/store/{store_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Store API"],
+        "description": "get store by id",
+        "summary": "get store by id",
+        "parameters": [
+          {
+            "name": "store_id",
+            "in": "path",
+            "description": "store id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/store"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Store API"],
+        "description": "update store by id",
+        "summary": "update store by id",
+        "parameters": [
+          {
+            "name": "store_id",
+            "in": "path",
+            "description": "store id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/storeUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update store",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/store"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/distributor": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Distributor API"],
+        "description": "service for get list distributor",
+        "summary": "service for get list distributor",
+        "responses": {
+          "200": {
+            "description": "Success get all distributor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/distributor"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Distributor API"],
+        "description": "create new distributor",
+        "summary": "create new distributor",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/distributorCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create distributor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/distributor"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/distributor/{distributor_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Distributor API"],
+        "description": "get distributor by id",
+        "summary": "get distributor by id",
+        "parameters": [
+          {
+            "name": "distributor_id",
+            "in": "path",
+            "description": "distributor id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get distributor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/distributor"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Distributor API"],
+        "description": "update distributor by id",
+        "summary": "update distributor by id",
+        "parameters": [
+          {
+            "name": "distributor_id",
+            "in": "path",
+            "description": "distributor id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/distributorUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update distributor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/distributor"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/principal": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Principal API"],
+        "description": "service for get list principal",
+        "summary": "service for get list principal",
+        "responses": {
+          "200": {
+            "description": "Success get all principal",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/principal"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Principal API"],
+        "description": "create new principal",
+        "summary": "create new principal",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/principalCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create principal",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/principal"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/principal/{principal_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Principal API"],
+        "description": "get principal by id",
+        "summary": "get principal by id",
+        "parameters": [
+          {
+            "name": "principal_id",
+            "in": "path",
+            "description": "principal id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get principal",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/principal"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Principal API"],
+        "description": "update principal by id",
+        "summary": "update principal by id",
+        "parameters": [
+          {
+            "name": "principal_id",
+            "in": "path",
+            "description": "principal id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/principalUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update principal",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/principal"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/store_distributor_mapping": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Store Distributor Mapping API"],
+        "description": "service for get list store_distributor_mapping",
+        "summary": "service for get list store_distributor_mapping",
+        "responses": {
+          "200": {
+            "description": "Success get all store_distributor_mapping",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/store_distributor_mapping"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Store Distributor Mapping API"],
+        "description": "create new store_distributor_mapping",
+        "summary": "create new store_distributor_mapping",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/store_distributor_mappingCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create store_distributor_mapping",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/store_distributor_mapping"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/store_distributor_mapping/{store_distributor_mapping_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Store Distributor Mapping API"],
+        "description": "get store_distributor_mapping by id",
+        "summary": "get store_distributor_mapping by id",
+        "parameters": [
+          {
+            "name": "store_distributor_mapping_id",
+            "in": "path",
+            "description": "store_distributor_mapping id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get store_distributor_mapping",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/store_distributor_mapping"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Store Distributor Mapping API"],
+        "description": "update store_distributor_mapping by id",
+        "summary": "update store_distributor_mapping by id",
+        "parameters": [
+          {
+            "name": "store_distributor_mapping_id",
+            "in": "path",
+            "description": "store_distributor_mapping id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/store_distributor_mappingUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update store_distributor_mapping",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/store_distributor_mapping"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/customer_product": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Customer Product API"],
+        "description": "service for get list customer_product",
+        "summary": "service for get list customer_product",
+        "responses": {
+          "200": {
+            "description": "Success get all customer_product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/customer_product"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Customer Product API"],
+        "description": "create new customer_product",
+        "summary": "create new customer_product",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/customer_productCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create customer_product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/customer_product"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/customer_product/{customer_product_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Customer Product API"],
+        "description": "get customer_product by id",
+        "summary": "get customer_product by id",
+        "parameters": [
+          {
+            "name": "customer_product_id",
+            "in": "path",
+            "description": "customer_product id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get customer_product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/customer_product"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Customer Product API"],
+        "description": "update customer_product by id",
+        "summary": "update customer_product by id",
+        "parameters": [
+          {
+            "name": "customer_product_id",
+            "in": "path",
+            "description": "customer_product id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/customer_productUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update customer_product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/customer_product"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/principal_product": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Principal Product API"],
+        "description": "service for get list principal_product",
+        "summary": "service for get list principal_product",
+        "responses": {
+          "200": {
+            "description": "Success get all principal_product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/principal_product"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Principal Product API"],
+        "description": "create new principal_product",
+        "summary": "create new principal_product",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/principal_productCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create principal_product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/principal_product"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/principal_product/{principal_product_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Principal Product API"],
+        "description": "get principal_product by id",
+        "summary": "get principal_product by id",
+        "parameters": [
+          {
+            "name": "principal_product_id",
+            "in": "path",
+            "description": "principal_product id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get principal_product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/principal_product"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Principal Product API"],
+        "description": "update principal_product by id",
+        "summary": "update principal_product by id",
+        "parameters": [
+          {
+            "name": "principal_product_id",
+            "in": "path",
+            "description": "principal_product id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/principal_productUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update principal_product",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/principal_product"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/store_distributor_product_mapping": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Store Distributor Product Mapping API"],
+        "description": "service for get list store_distributor_product_mapping",
+        "summary": "service for get list store_distributor_product_mapping",
+        "responses": {
+          "200": {
+            "description": "Success get all store_distributor_product_mapping",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/store_distributor_product_mapping"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Store Distributor Product Mapping API"],
+        "description": "create new store_distributor_product_mapping",
+        "summary": "create new store_distributor_product_mapping",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/store_distributor_product_mappingCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create store_distributor_product_mapping",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/store_distributor_product_mapping"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/store_distributor_product_mapping/{store_distributor_product_mapping_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Store Distributor Product Mapping API"],
+        "description": "get store_distributor_product_mapping by id",
+        "summary": "get store_distributor_product_mapping by id",
+        "parameters": [
+          {
+            "name": "store_distributor_product_mapping_id",
+            "in": "path",
+            "description": "store_distributor_product_mapping id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get store_distributor_product_mapping",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/store_distributor_product_mapping"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Store Distributor Product Mapping API"],
+        "description": "update store_distributor_product_mapping by id",
+        "summary": "update store_distributor_product_mapping by id",
+        "parameters": [
+          {
+            "name": "store_distributor_product_mapping_id",
+            "in": "path",
+            "description": "store_distributor_product_mapping id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/store_distributor_product_mappingUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update store_distributor_product_mapping",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/store_distributor_product_mapping"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/customer_principal_product_mapping": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Customer Principal Product Mapping API"],
+        "description": "service for get list customer_principal_product_mapping",
+        "summary": "service for get list customer_principal_product_mapping",
+        "responses": {
+          "200": {
+            "description": "Success get all customer_principal_product_mapping",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/customer_principal_product_mapping"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Customer Principal Product Mapping API"],
+        "description": "create new customer_principal_product_mapping",
+        "summary": "create new customer_principal_product_mapping",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/customer_principal_product_mappingCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create customer_principal_product_mapping",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/customer_principal_product_mapping"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/customer_principal_product_mapping/{customer_principal_product_mapping_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Customer Principal Product Mapping API"],
+        "description": "get customer_principal_product_mapping by id",
+        "summary": "get customer_principal_product_mapping by id",
+        "parameters": [
+          {
+            "name": "customer_principal_product_mapping_id",
+            "in": "path",
+            "description": "customer_principal_product_mapping id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get customer_principal_product_mapping",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/customer_principal_product_mapping"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Customer Principal Product Mapping API"],
+        "description": "update customer_principal_product_mapping by id",
+        "summary": "update customer_principal_product_mapping by id",
+        "parameters": [
+          {
+            "name": "customer_principal_product_mapping_id",
+            "in": "path",
+            "description": "customer_principal_product_mapping id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/customer_principal_product_mappingUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update customer_principal_product_mapping",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/customer_principal_product_mapping"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/purchase_order": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Purchase Order API"],
+        "description": "service for get list purchase_order",
+        "summary": "service for get list purchase_order",
+        "responses": {
+          "200": {
+            "description": "Success get all purchase_order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/purchase_order"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Purchase Order API"],
+        "description": "create new purchase_order",
+        "summary": "create new purchase_order",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/purchase_orderCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create purchase_order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/purchase_order"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/purchase_order/{purchase_order_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Purchase Order API"],
+        "description": "get purchase_order by id",
+        "summary": "get purchase_order by id",
+        "parameters": [
+          {
+            "name": "purchase_order_id",
+            "in": "path",
+            "description": "purchase_order id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get purchase_order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/purchase_order"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Purchase Order API"],
+        "description": "update purchase_order by id",
+        "summary": "update purchase_order by id",
+        "parameters": [
+          {
+            "name": "purchase_order_id",
+            "in": "path",
+            "description": "purchase_order id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/purchase_orderUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update purchase_order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/purchase_order"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/purchase_order_detail": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Purchase Order Detail API"],
+        "description": "service for get list purchase_order_detail",
+        "summary": "service for get list purchase_order_detail",
+        "responses": {
+          "200": {
+            "description": "Success get all purchase_order_detail",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/purchase_order_detail"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Purchase Order Detail API"],
+        "description": "create new purchase_order_detail",
+        "summary": "create new purchase_order_detail",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/purchase_order_detailCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create purchase_order_detail",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/purchase_order_detail"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/purchase_order_detail/{purchase_order_detail_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Purchase Order Detail API"],
+        "description": "get purchase_order_detail by id",
+        "summary": "get purchase_order_detail by id",
+        "parameters": [
+          {
+            "name": "purchase_order_detail_id",
+            "in": "path",
+            "description": "purchase_order_detail id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get purchase_order_detail",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/purchase_order_detail"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Purchase Order Detail API"],
+        "description": "update purchase_order_detail by id",
+        "summary": "update purchase_order_detail by id",
+        "parameters": [
+          {
+            "name": "purchase_order_detail_id",
+            "in": "path",
+            "description": "purchase_order_detail id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/purchase_order_detailUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update purchase_order_detail",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/purchase_order_detail"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/sales_order": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Sales Order API"],
+        "description": "service for get list sales_order",
+        "summary": "service for get list sales_order",
+        "responses": {
+          "200": {
+            "description": "Success get all sales_order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/sales_order"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Sales Order API"],
+        "description": "create new sales_order",
+        "summary": "create new sales_order",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/sales_orderCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create sales_order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/sales_order"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/sales_order/{sales_order_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Sales Order API"],
+        "description": "get sales_order by id",
+        "summary": "get sales_order by id",
+        "parameters": [
+          {
+            "name": "sales_order_id",
+            "in": "path",
+            "description": "sales_order id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get sales_order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/sales_order"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Sales Order API"],
+        "description": "update sales_order by id",
+        "summary": "update sales_order by id",
+        "parameters": [
+          {
+            "name": "sales_order_id",
+            "in": "path",
+            "description": "sales_order id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/sales_orderUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update sales_order",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/sales_order"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/sales_order_detail": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Sales Order Detail API"],
+        "description": "service for get list sales_order_detail",
+        "summary": "service for get list sales_order_detail",
+        "responses": {
+          "200": {
+            "description": "Success get all sales_order_detail",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/sales_order_detail"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Sales Order Detail API"],
+        "description": "create new sales_order_detail",
+        "summary": "create new sales_order_detail",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/sales_order_detailCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create sales_order_detail",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/sales_order_detail"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/sales_order_detail/{sales_order_detail_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Sales Order Detail API"],
+        "description": "get sales_order_detail by id",
+        "summary": "get sales_order_detail by id",
+        "parameters": [
+          {
+            "name": "sales_order_detail_id",
+            "in": "path",
+            "description": "sales_order_detail id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get sales_order_detail",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/sales_order_detail"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Sales Order Detail API"],
+        "description": "update sales_order_detail by id",
+        "summary": "update sales_order_detail by id",
+        "parameters": [
+          {
+            "name": "sales_order_detail_id",
+            "in": "path",
+            "description": "sales_order_detail id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/sales_order_detailUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update sales_order_detail",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/sales_order_detail"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/warehouse": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Warehouse API"],
+        "description": "service for get list warehouse",
+        "summary": "service for get list warehouse",
+        "responses": {
+          "200": {
+            "description": "Success get all warehouse",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/warehouse"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Warehouse API"],
+        "description": "create new warehouse",
+        "summary": "create new warehouse",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/warehouseCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create warehouse",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/warehouse"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/warehouse/{warehouse_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Warehouse API"],
+        "description": "get warehouse by id",
+        "summary": "get warehouse by id",
+        "parameters": [
+          {
+            "name": "warehouse_id",
+            "in": "path",
+            "description": "warehouse id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get warehouse",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/warehouse"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Warehouse API"],
+        "description": "update warehouse by id",
+        "summary": "update warehouse by id",
+        "parameters": [
+          {
+            "name": "warehouse_id",
+            "in": "path",
+            "description": "warehouse id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/warehouseUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update warehouse",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/warehouse"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/email": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Email API"],
+        "description": "service for get list email",
+        "summary": "service for get list email",
+        "responses": {
+          "200": {
+            "description": "Success get all email",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/email"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Email API"],
+        "description": "create new email",
+        "summary": "create new email",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/emailCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create email",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/email"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/email/{email_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Email API"],
+        "description": "get email by id",
+        "summary": "get email by id",
+        "parameters": [
+          {
+            "name": "email_id",
+            "in": "path",
+            "description": "email id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get email",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/email"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Email API"],
+        "description": "update email by id",
+        "summary": "update email by id",
+        "parameters": [
+          {
+            "name": "email_id",
+            "in": "path",
+            "description": "email id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/emailUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update email",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/email"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/api/files": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Files API"],
+        "description": "service for get list files",
+        "summary": "service for get list files",
+        "responses": {
+          "200": {
+            "description": "Success get all files",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/files"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Files API"],
+        "description": "create new files",
+        "summary": "create new files",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/filesCreate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success create files",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/files"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/files/{files_id}": {
+      "get": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Files API"],
+        "description": "get files by id",
+        "summary": "get files by id",
+        "parameters": [
+          {
+            "name": "files_id",
+            "in": "path",
+            "description": "files id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "success get files",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/files"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "Auth": []
+        }],
+        "tags": ["Files API"],
+        "description": "update files by id",
+        "summary": "update files by id",
+        "parameters": [
+          {
+            "name": "files_id",
+            "in": "path",
+            "description": "files id"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/filesUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success update files",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/files"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "components": {
+    "securitySchemes": {
+      "Auth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Authorization-Key",
+        "description": "Authorization for protected resource"
+      }
+    },
+    "schemas": {
+      "company": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "companyCreate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        }
+      },
+      "companyUpdate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "customer": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "company_id": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "customerCreate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "company_id": {
+            "type": "number"
+          }
+        }
+      },
+      "customerUpdate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "company_id": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "store": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "customer_id": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "storeCreate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "customer_id": {
+            "type": "number"
+          }
+        }
+      },
+      "storeUpdate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "customer_id": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "distributor": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "alias": {
+            "type": "string"
+          },
+          "principal_id": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "distributorCreate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "alias": {
+            "type": "string"
+          },
+          "principal_id": {
+            "type": "number"
+          }
+        }
+      },
+      "distributorUpdate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "alias": {
+            "type": "string"
+          },
+          "principal_id": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "principal": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "company_id": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "principalCreate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "company_id": {
+            "type": "number"
+          }
+        }
+      },
+      "principalUpdate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "company_id": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "store_distributor_mapping": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "store_id": {
+            "type": "number"
+          },
+          "distributor_id": {
+            "type": "number"
+          },
+          "email_id": {
+            "type": "number"
+          },
+          "is_check_product_mapping": {
+            "type": "boolean"
+          },
+          "is_check_product_mapping-global": {
+            "type": "boolean"
+          },
+          "handle_product_unmapping": {
+            "type": "string"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "store_distributor_mappingCreate": {
+        "type": "object",
+        "properties": {
+          "store_id": {
+            "type": "number"
+          },
+          "distributor_id": {
+            "type": "number"
+          },
+          "email_id": {
+            "type": "number"
+          },
+          "is_check_product_mapping": {
+            "type": "boolean"
+          },
+          "is_check_product_mapping-global": {
+            "type": "boolean"
+          },
+          "handle_product_unmapping": {
+            "type": "string"
+          }
+        }
+      },
+      "store_distributor_mappingUpdate": {
+        "type": "object",
+        "properties": {
+          "store_id": {
+            "type": "number"
+          },
+          "distributor_id": {
+            "type": "number"
+          },
+          "email_id": {
+            "type": "number"
+          },
+          "is_check_product_mapping": {
+            "type": "boolean"
+          },
+          "is_check_product_mapping-global": {
+            "type": "boolean"
+          },
+          "handle_product_unmapping": {
+            "type": "string"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "customer_product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "code": {
+            "type": "string"
+          },
+          "barcode": {
+            "type": "string"
+          },
+          "name": {
+            "type":"string"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "customer_productCreate": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "barcode": {
+            "type": "string"
+          },
+          "name": {
+            "type":"string"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          }
+        }
+      },
+      "customer_productUpdate": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "barcode": {
+            "type": "string"
+          },
+          "name": {
+            "type":"string"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "principal_product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "code": {
+            "type": "string"
+          },
+          "barcode": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "uom1": {
+            "type": "string"
+          },
+          "uom2": {
+            "type": "string"
+          },
+          "uom3": {
+            "type": "string"
+          },
+          "qty1": {
+            "type": "number"
+          },
+          "qty2": {
+            "type": "number"
+          },
+          "qty3": {
+            "type":"number"
+          },
+          "conv1to2": {
+            "type": "number"
+          },
+          "conv2to3": {
+            "type": "number"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "principal_productCreate": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "barcode": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "uom1": {
+            "type": "string"
+          },
+          "uom2": {
+            "type": "string"
+          },
+          "uom3": {
+            "type": "string"
+          },
+          "qty1": {
+            "type": "number"
+          },
+          "qty2": {
+            "type": "number"
+          },
+          "qty3": {
+            "type":"number"
+          },
+          "conv1to2": {
+            "type": "number"
+          },
+          "conv2to3": {
+            "type": "number"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "principal_productUpdate": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "barcode": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "uom1": {
+            "type": "string"
+          },
+          "uom2": {
+            "type": "string"
+          },
+          "uom3": {
+            "type": "string"
+          },
+          "qty1": {
+            "type": "number"
+          },
+          "qty2": {
+            "type": "number"
+          },
+          "qty3": {
+            "type":"number"
+          },
+          "conv1to2": {
+            "type": "number"
+          },
+          "conv2to3": {
+            "type": "number"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "store_distributor_product_mapping": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "customer_product_id": {
+            "type": "number"
+          },
+          "principal_product_id": {
+            "type": "number"
+          },
+          "store_id": {
+            "type": "number"
+          },
+          "distributor_id": {
+            "type": "number"
+          },
+          "warehouse_id": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "store_distributor_product_mappingCreate": {
+        "type": "object",
+        "properties": {
+          "customer_product_id": {
+            "type": "number"
+          },
+          "principal_product_id": {
+            "type": "number"
+          },
+          "store_id": {
+            "type": "number"
+          },
+          "distributor_id": {
+            "type": "number"
+          },
+          "warehouse_id": {
+            "type": "number"
+          }
+        }
+      },
+      "store_distributor_product_mappingUpdate": {
+        "type": "object",
+        "properties": {
+          "customer_product_id": {
+            "type": "number"
+          },
+          "principal_product_id": {
+            "type": "number"
+          },
+          "store_id": {
+            "type": "number"
+          },
+          "distributor_id": {
+            "type": "number"
+          },
+          "warehouse_id": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "customer_principal_product_mapping": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "customer_product_id": {
+            "type": "number"
+          },
+          "principal_product_id": {
+            "type": "number"
+          },
+          "customer_id": {
+            "type": "number"
+          },
+          "principal_id": {
+            "type": "number"
+          },
+          "warehouse_id": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "customer_principal_product_mappingCreate": {
+        "type": "object",
+        "properties": {
+          "customer_product_id": {
+            "type": "number"
+          },
+          "principal_product_id": {
+            "type": "number"
+          },
+          "customer_id": {
+            "type": "number"
+          },
+          "principal_id": {
+            "type": "number"
+          },
+          "warehouse_id": {
+            "type": "number"
+          }
+        }
+      },
+      "customer_principal_product_mappingUpdate": {
+        "type": "object",
+        "properties": {
+          "customer_product_id": {
+            "type": "number"
+          },
+          "principal_product_id": {
+            "type": "number"
+          },
+          "customer_id": {
+            "type": "number"
+          },
+          "principal_id": {
+            "type": "number"
+          },
+          "warehouse_id": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "purchase_order": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "po_number": {
+            "type": "string"
+          },
+          "po_date": {
+            "type": "date"
+          },
+          "delivery_date": {
+            "type": "date"
+          },
+          "customer_id": {
+            "type": "number"
+          },
+          "principal_id": {
+            "type": "number"
+          },
+          "store_id": {
+            "type": "number"
+          },
+          "distributor_id": {
+            "type":"number"
+          },
+          "files_id": {
+            "type": "number"
+          },
+          "total_ppn": {
+            "type": "number"
+          },
+          "total_discount": {
+            "type": "number"
+          },
+          "total_gross_amount": {
+            "type": "number"
+          },
+          "total_net_amount": {
+            "type": "number"
+          },
+          "is_approved": {
+            "type": "boolean"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "purchase_orderCreate": {
+        "type": "object",
+        "properties": {
+          "po_number": {
+            "type": "string"
+          },
+          "po_date": {
+            "type": "date"
+          },
+          "delivery_date": {
+            "type": "date"
+          },
+          "customer_id": {
+            "type": "number"
+          },
+          "principal_id": {
+            "type": "number"
+          },
+          "store_id": {
+            "type": "number"
+          },
+          "distributor_id": {
+            "type":"number"
+          },
+          "files_id": {
+            "type": "number"
+          },
+          "total_ppn": {
+            "type": "number"
+          },
+          "total_discount": {
+            "type": "number"
+          },
+          "total_gross_amount": {
+            "type": "number"
+          },
+          "total_net_amount": {
+            "type": "number"
+          },
+          "is_approved": {
+            "type": "boolean"
+          }
+        }
+      },
+      "purchase_orderUpdate": {
+        "type": "object",
+        "properties": {
+          "po_number": {
+            "type": "string"
+          },
+          "po_date": {
+            "type": "date"
+          },
+          "delivery_date": {
+            "type": "date"
+          },
+          "customer_id": {
+            "type": "number"
+          },
+          "principal_id": {
+            "type": "number"
+          },
+          "store_id": {
+            "type": "number"
+          },
+          "distributor_id": {
+            "type":"number"
+          },
+          "files_id": {
+            "type": "number"
+          },
+          "total_ppn": {
+            "type": "number"
+          },
+          "total_discount": {
+            "type": "number"
+          },
+          "total_gross_amount": {
+            "type": "number"
+          },
+          "total_net_amount": {
+            "type": "number"
+          },
+          "is_approved": {
+            "type": "boolean"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "purchase_order_detail": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "purchase_order_id": {
+            "type": "number"
+          },
+          "customer_product_code": {
+            "type": "string"
+          },
+          "qty_order": {
+            "type": "number"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "ppn": {
+            "type": "number"
+          },
+          "discount": {
+            "type": "number"
+          },
+          "gross_amount": {
+            "type": "number"
+          },
+          "net_amount": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "purchase_order_detailCreate": {
+        "type": "object",
+        "properties": {
+          "purchase_order_id": {
+            "type": "number"
+          },
+          "customer_product_code": {
+            "type": "string"
+          },
+          "qty_order": {
+            "type": "number"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "ppn": {
+            "type": "number"
+          },
+          "discount": {
+            "type": "number"
+          },
+          "gross_amount": {
+            "type": "number"
+          },
+          "net_amount": {
+            "type": "number"
+          }
+        }
+      },
+      "purchase_order_detailUpdate": {
+        "type": "object",
+        "properties": {
+          "purchase_order_id": {
+            "type": "number"
+          },
+          "customer_product_code": {
+            "type": "string"
+          },
+          "qty_order": {
+            "type": "number"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "ppn": {
+            "type": "number"
+          },
+          "discount": {
+            "type": "number"
+          },
+          "gross_amount": {
+            "type": "number"
+          },
+          "net_amount": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "sales_order": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "po_number": {
+            "type": "string"
+          },
+          "po_date": {
+            "type": "date"
+          },
+          "delivery_date": {
+            "type": "date"
+          },
+          "purchase_order_id": {
+            "type": "number"
+          },
+          "customer_id": {
+            "type": "number"
+          },
+          "principal_id": {
+            "type": "number"
+          },
+          "store_id": {
+            "type": "number"
+          },
+          "distributor_id": {
+            "type":"number"
+          },
+          "files_id": {
+            "type": "number"
+          },
+          "total_ppn": {
+            "type": "number"
+          },
+          "total_discount": {
+            "type": "number"
+          },
+          "total_gross_amount": {
+            "type": "number"
+          },
+          "total_net_amount": {
+            "type": "number"
+          },
+          "is_approved": {
+            "type": "boolean"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "sales_orderCreate": {
+        "type": "object",
+        "properties": {
+          "po_number": {
+            "type": "string"
+          },
+          "po_date": {
+            "type": "date"
+          },
+          "delivery_date": {
+            "type": "date"
+          },
+          "purchase_order_id": {
+            "type": "number"
+          },
+          "customer_id": {
+            "type": "number"
+          },
+          "principal_id": {
+            "type": "number"
+          },
+          "store_id": {
+            "type": "number"
+          },
+          "distributor_id": {
+            "type":"number"
+          },
+          "files_id": {
+            "type": "number"
+          },
+          "total_ppn": {
+            "type": "number"
+          },
+          "total_discount": {
+            "type": "number"
+          },
+          "total_gross_amount": {
+            "type": "number"
+          },
+          "total_net_amount": {
+            "type": "number"
+          },
+          "is_approved": {
+            "type": "boolean"
+          }
+        }
+      },
+      "sales_orderUpdate": {
+        "type": "object",
+        "properties": {
+          "po_number": {
+            "type": "string"
+          },
+          "po_date": {
+            "type": "date"
+          },
+          "delivery_date": {
+            "type": "date"
+          },
+          "purchase_order_id": {
+            "type": "number"
+          },
+          "customer_id": {
+            "type": "number"
+          },
+          "principal_id": {
+            "type": "number"
+          },
+          "store_id": {
+            "type": "number"
+          },
+          "distributor_id": {
+            "type":"number"
+          },
+          "files_id": {
+            "type": "number"
+          },
+          "total_ppn": {
+            "type": "number"
+          },
+          "total_discount": {
+            "type": "number"
+          },
+          "total_gross_amount": {
+            "type": "number"
+          },
+          "total_net_amount": {
+            "type": "number"
+          },
+          "is_approved": {
+            "type": "boolean"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "sales_order_detail": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "sales_order_id": {
+            "type": "number"
+          },
+          "principal_product_code": {
+            "type": "number"
+          },
+          "qty1": {
+            "type": "number"
+          },
+          "qty2": {
+            "type": "number"
+          },
+          "qty3": {
+            "type": "number"
+          },
+          "qty_order": {
+            "type": "number"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "ppn": {
+            "type": "number"
+          },
+          "discount": {
+            "type": "number"
+          },
+          "gross_amount": {
+            "type": "number"
+          },
+          "net_amount": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "sales_order_detailCreate": {
+        "type": "object",
+        "properties": {
+          "sales_order_id": {
+            "type": "number"
+          },
+          "principal_product_code": {
+            "type": "number"
+          },
+          "qty1": {
+            "type": "number"
+          },
+          "qty2": {
+            "type": "number"
+          },
+          "qty3": {
+            "type": "number"
+          },
+          "qty_order": {
+            "type": "number"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "ppn": {
+            "type": "number"
+          },
+          "discount": {
+            "type": "number"
+          },
+          "gross_amount": {
+            "type": "number"
+          },
+          "net_amount": {
+            "type": "number"
+          }
+        }
+      },
+      "sales_order_detailUpdate": {
+        "type": "object",
+        "properties": {
+          "sales_order_id": {
+            "type": "number"
+          },
+          "principal_product_code": {
+            "type": "number"
+          },
+          "qty1": {
+            "type": "number"
+          },
+          "qty2": {
+            "type": "number"
+          },
+          "qty3": {
+            "type": "number"
+          },
+          "qty_order": {
+            "type": "number"
+          },
+          "unit_price": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "ppn": {
+            "type": "number"
+          },
+          "discount": {
+            "type": "number"
+          },
+          "gross_amount": {
+            "type": "number"
+          },
+          "net_amount": {
+            "type": "number"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "warehouse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "warehouseCreate": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          }
+        }
+      },
+      "warehouseUpdate": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      },
+      "email": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "emails": {
+            "type": "string"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "emailCreate": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "emails": {
+            "type": "string"
+          }
+        }
+      },
+      "emailUpdate": {
+        "type": "object",
+        "properties": {
+          "emails": {
+            "type": "string"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "files": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "is_delete": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "date"
+          },
+          "updated_at": {
+            "type": "date"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "filesCreate": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "filesUpdate": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "is_delete": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

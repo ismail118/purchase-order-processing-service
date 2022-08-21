@@ -1,0 +1,330 @@
+for example
+https://plantuml.com/ie-diagram
+
+@startuml
+entity company {
+    * id : INT
+    --
+    * name : STRING
+    * address : STRING
+    * country : STRING
+    * email : STRING
+     phone : STRING
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity customer {
+    * id : INT
+    --
+    * name : STRING
+    * address : STRING
+    * country : STRING
+    * email : STRING
+     phone : STRING
+    * company_id : INT
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity store {
+    * id : INT
+    --
+    * code : STRING
+    * name : STRING
+    * address : STRING
+    * country : STRING
+    * email : STRING
+     phone : STRING
+    * customer_id : STRING
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity distributor {
+    * id : INT
+    --
+    * code : STRING
+    * name : STRING
+    * address : STRING
+    * country : STRING
+    * email : STRING
+     phone : STRING
+    * alias : STRING
+    * principal_id : INT
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity principal {
+    * id : INT
+    --
+    * name : STRING
+    * address : STRING
+    * country : STRING
+    * email : STRING
+     phone : STRING
+    * company_id : INT
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity store_distributor_mapping {
+    * id : INT
+    --
+    * store_id : INT
+    * distributor_id : INT
+    * email_id : INT
+    * is_check_product_mapping : BOOL
+    * is_check_product_mapping_global : BOOL
+    * handle_product_unmapping : ENUM(allowed, delete)
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity customer_product {
+    * id : INT
+    * code : STRING
+    --
+    * barcode : STRING
+    * name : STRING
+    * unit : STRING
+    * price : INT
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity principal_product {
+    * id : INT
+    * code : STRING
+    --
+    * barcode : STRING
+    * name : STRING
+    * uom1 : STRING
+    * uom2 : STRING
+    * uom3 : STRING
+    * qty1 : INT
+    * qty2 : INT
+    * qty3 : INT
+    * conv1to2 : INT
+    * conv2to3 : INT
+    * unit_price : INT
+    * unit : STRING
+    * type : STRING
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity store_distributor_product_mapping {
+    * id : INT
+    --
+    * customer_product_id : INT
+    * principal_product_id : INT
+    * store_id : INT
+    * distributor_id : INT
+    * warehouse_id : INT
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity customer_principal_product_mapping {
+    * id : INT
+    --
+    * customer_product_id : INT
+    * principal_product_id : INT
+    * customer_id : INT
+    * principal_id : INT
+    * warehouse_id : INT
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity purchase_order {
+    * id : INT
+    --
+    * po_number : STRING
+    * po_date : DATE
+    * delivery_date : DATE
+    * customer_id : INT
+    * principal_id : INT
+    * store_id : INT
+    * distributor_id : INT
+    * files_id : INT
+    * total_ppn : INT
+    * total_discount : INT
+    * total_gross_amount : INT
+    * total_net_amount : INT
+    * is_approved : BOOL
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity purchase_order_detail {
+    * id : INT
+    --
+    * purchase_order_id : INT
+    * customer_product_code : STRING
+    * qty_order : INT
+    * unit_price : INT
+    * unit : STRING
+    * ppn : INT
+    * discount : INT
+    * gross_amount : INT
+    * net_amount : INT
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity sales_order {
+    * id : INT
+    --
+    * po_number : STRING
+    * po_date : DATE
+    * delivery_date : DATE
+    * purchase_order_id : INT
+    * customer_id : INT
+    * principal_id : INT
+    * store_id : INT
+    * distributor_id : INT
+    * files_id : INT
+    * total_ppn : INT
+    * total_discount : INT
+    * total_gross_amount : INT
+    * total_net_amount : INT
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity sales_order_detail {
+    * id : INT
+    --
+    * sales_order_id : INT
+    * principal_product_code : STRING
+    * qty1 : INT
+    * qty2 : INT
+    * qty3 : INT
+    * qty_order : INT
+    * unit_price : INT
+    * unit : STRING
+    * ppn : INT
+    * discount : INT
+    * gross_amount : INT
+    * net_amount : INT
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity warehouse {
+    * id : INT
+    --
+    * code : STRING
+    * name : STRING
+    * region : STRING
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity email {
+    * id : INT
+    --
+    * emails : STRING
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+entity files {
+    * id : INT
+    --
+    * name : STRING
+    * url : STRING
+    * is_delete : BOOL
+    * created_at : TIMESTAMP
+    * update_at : TIMESTAMP
+    * created_by : VARCHAR
+    * update_by : VARCHAR
+}
+
+customer }o--|| company
+principal }o--|| company
+store }o--|| customer
+distributor }o--|| principal
+store ||--o{ store_distributor_mapping
+distributor ||--o{ store_distributor_mapping
+store_distributor_mapping }o--|| email
+principal_product }o--|| principal
+customer_product }o--|| customer
+customer_product ||--o{ store_distributor_product_mapping
+principal_product ||--o{ store_distributor_product_mapping
+store ||--o{ store_distributor_product_mapping
+distributor ||--o{ store_distributor_product_mapping
+warehouse ||--o{ store_distributor_product_mapping
+customer_product ||--o{ customer_principal_product_mapping
+principal_product ||--o{ customer_principal_product_mapping
+customer ||--o{ customer_principal_product_mapping
+principal ||--o{ customer_principal_product_mapping
+warehouse ||--o{ customer_principal_product_mapping
+customer ||--o{ purchase_order
+principal ||--o{ purchase_order
+store ||--o{ purchase_order
+distributor ||--o{ purchase_order
+purchase_order ||--o{ purchase_order_detail
+customer_product ||--o{ purchase_order_detail
+purchase_order ||--|| sales_order
+customer ||--o{ sales_order
+principal ||--o{ sales_order
+store ||--o{ sales_order
+distributor ||--o{ sales_order
+sales_order ||--o{ sales_order_detail
+principal_product ||--o{ sales_order_detail
+files }o--|| purchase_order
+files }o--|| sales_order
+
+@enduml
